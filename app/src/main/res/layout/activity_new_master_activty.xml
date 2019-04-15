@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/appbar"
+    android:background="@drawable/bg_for_new_client_dialog">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_master"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/actionbar_theme"
+        android:paddingStart="6dp"
+        android:paddingEnd="16dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@mipmap/changed_bg_float"
+        app:title="@string/new_master_form"
+        app:titleTextColor="@color/textColor"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        />
+    <ScrollView
+        android:layout_below="@id/toolbar_master"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_for_new_client_dialog"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+            <!--Header -->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/master_image"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/img_add_klient"
+                    app:civ_border_color="#FFFF"
+                    app:civ_border_width="2dp"
+                    android:layout_margin="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_toStartOf="@id/master_image"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_client_name_hint"
+                        android:textColor="@color/white"
+                        android:textSize="19sp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/master_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/new_client_name_hint"
+                        android:inputType="text"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/semi_gray"
+                        android:backgroundTint="@color/white"
+
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_job_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/master_job"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="@string/new_master_job_hint"
+                android:textColor="@color/white"
+                android:textColorHint="@color/semi_gray"
+                android:backgroundTint="@color/white"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_sex_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="0dp"
+                    android:id="@+id/radio_btn_man"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/man"
+                    android:textColor="@color/white"
+                    android:textSize="19sp" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="0dp"
+                    android:id="@+id/radio_btn_woman"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/woman"
+                    android:textColor="@color/white"
+                    android:textSize="19sp" />
+
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_nomer_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/master_nomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="@string/new_master_nomer_hint"
+                android:textColor="@color/white"
+                android:textColorHint="@color/semi_gray"
+                android:inputType="number"
+                android:backgroundTint="@color/white"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_email_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/master_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="@string/new_master_email_hint"
+                android:textColor="@color/white"
+                android:textColorHint="@color/semi_gray"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@color/white"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_address_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/master_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:layout_margin="5dp"
+                android:hint="@string/new_master_address_hint"
+                android:textColor="@color/white"
+                android:textColorHint="@color/semi_gray" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_date_born_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/master_date_born"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="8.4"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/new_master_date_born_hint"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/semi_gray" />
+
+                <ImageButton
+                    android:id="@+id/btn_master_pick_data"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1.5"
+                    android:background="@color/white"
+                    android:contentDescription="@string/new_master_date_born_hint"
+                    android:src="@mipmap/date_image" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/new_master_date_come_hint"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/master_date_come"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="8.4"
+                    android:hint="@string/new_master_date_come_hint"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/semi_gray"
+                    android:backgroundTint="@color/white"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btn_master_pick_data_come"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1.5"
+                    android:background="@color/white"
+                    android:contentDescription="@string/new_master_date_come_hint"
+                    android:src="@mipmap/date_image" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/extra_items_layout_master"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_layout"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/client_items_label"
+                android:textColor="@color/white"
+                android:textSize="19sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/master_item_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5.5"
+                    android:hint="@string/client_item_1_label"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/semi_gray"
+                    android:backgroundTint="@color/white"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/master_btn_create_new_item"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="3"
+                    android:text="@string/add_text"
+                    app:backgroundTint="@color/white"
+                    app:icon="@mipmap/add_button"
+                    app:iconGravity="textStart"
+                    app:iconPadding="10dp"
+                    app:iconSize="25dp"
+                    app:iconTint="@color/colorAccent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/master_btn_delete"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1.5"
+                    android:text="X"
+                    android:textColor="@color/colorAccent"
+                    app:backgroundTint="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/flaot_btns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/extra_items_layout_master"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/master_save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@mipmap/save_button"
+                app:backgroundTint="@color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
+

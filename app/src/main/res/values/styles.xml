@@ -1,0 +1,108 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MaterialTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="materialButtonStyle">@style/AppButton</item>
+        <item name="textInputStyle">@style/AppTextField</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="actionBarItemBackground">@drawable/actionbar_theme</item>
+        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
+    </style>
+
+    <!--Action bar style-->
+    <style name="MyActionBar"
+        parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/actionbar_theme</item>
+        <item name="background">@drawable/actionbar_theme</item>
+    </style>
+    <!--Button style-->
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+    </style>
+    <!--TextField style-->
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColor">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/dinpro_light</item>
+    </style>
+    <style name="OutlinedBtn" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/colorIcon</item>
+        <item name="hintTextColor">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:fontFamily">@font/dinpro_light</item>
+    </style>
+    <!--Action bat title -->
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/dinpro_bold</item>
+    </style>
+
+    <style name="AppTheme.FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppTheme.Slide">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+
+    </style>
+
+    <!--Spinner style-->
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_bg</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
+    </style>
+    <style name="Spinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="ThemeForNewProduct" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="materialButtonStyle">@style/AppButton</item>
+        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+</resources>

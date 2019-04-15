@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/white_bg"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_add_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingEnd="16dp"
+        android:paddingStart="6dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@mipmap/changed_bg_float"
+        app:title="@string/adding"
+        app:titleTextColor="@color/textColor"
+        android:background="@drawable/actionbar_theme"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:layout_marginTop="-15dp"
+        android:layout_below="@id/toolbar_add_activity"
+        android:src="@drawable/add_key" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_view"
+        android:gravity="center"
+        android:fontFamily="@font/dinpro"
+        android:text="@string/choose_for_add"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
+    <RelativeLayout
+        android:layout_below="@id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30sp"
+        >
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_master"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+
+                android:text="@string/master"
+                android:textStyle="normal"
+                android:textAppearance="@style/AppTextField"
+
+                app:backgroundTint="@color/bg_client_dialog"
+                app:cornerRadius="25dp"
+
+                app:icon="@drawable/add_klient"
+                app:iconGravity="start"
+                app:iconSize="30dp"
+
+
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:elevation="5dp"
+                app:iconPadding="-20dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_supplier"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+                app:icon="@drawable/add_supplier"
+                app:backgroundTint="@color/bg_client_dialog"
+                app:cornerRadius="25dp"
+                android:text="@string/supplier"
+                app:iconSize="30dp"
+
+                android:textAppearance="@style/AppTextField"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20sp"
+
+                android:elevation="5dp"
+                app:iconPadding="-20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/second"
+            android:layout_below="@id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_client"
+                style="@style/OutlinedBtn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+                android:text="@string/klient"
+                app:cornerRadius="25dp"
+                app:strokeColor="@color/colorAccent"
+                app:icon="@drawable/add_client"
+                app:iconTint="@color/colorIcon"
+                app:backgroundTint="@color/white"
+                android:textAppearance="@style/AppTextField"
+
+
+                app:iconSize="26dp"
+                app:iconPadding="-20dp"
+
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginBottom="10dp"
+
+
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_material"
+                style="@style/OutlinedBtn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+                android:text="@string/materials"
+                app:cornerRadius="25dp"
+                app:strokeColor="@color/colorAccent"
+                app:icon="@drawable/add_material"
+                app:iconTint="@color/colorIcon"
+                app:backgroundTint="@color/white"
+                android:textAppearance="@style/AppTextField"
+
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20sp"
+
+                app:iconSize="25dp"
+                app:iconPadding="-20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@id/second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_category"
+                style="@style/OutlinedBtn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+                android:text="@string/category"
+                app:cornerRadius="25dp"
+                app:strokeColor="@color/colorAccent"
+                app:icon="@drawable/add_category"
+                app:iconTint="@color/colorIcon"
+                app:backgroundTint="@color/white"
+                android:textAppearance="@style/AppTextField"
+
+                app:iconSize="25dp"
+                app:iconPadding="-10dp"
+
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/OutlinedBtn"
+                android:visibility="invisible"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_of_add_btns"
+                android:layout_weight="1"
+                android:text="@string/category"
+                app:cornerRadius="25dp"
+                app:strokeColor="@color/colorAccent"
+                app:icon="@drawable/add_category"
+                app:iconTint="@color/colorIcon"
+                app:backgroundTint="@color/white"
+                android:textAppearance="@style/AppTextField"
+                android:layout_marginStart="20dp"
+                app:iconSize="35dp"
+                app:iconPadding="-25dp"
+                android:layout_marginEnd="20sp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

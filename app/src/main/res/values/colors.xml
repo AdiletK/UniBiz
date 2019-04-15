@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7714a1</color>
+    <color name="colorPrimaryDark">#7714a1</color>
+    <color name="colorAccent">#673AB7</color>
+
+    <color name="colorIcon">#3827b4</color>
+
+    <color name="textColor">#EEEBEB</color>
+    <color name="bg_client_dialog">#6747ce</color>
+    <color name="card_background">#F9F8FD</color>
+
+    <color name="blue_black_light">#516179</color>
+    <color name="semi_gray">#979797</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

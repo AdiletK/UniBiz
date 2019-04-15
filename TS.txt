@@ -1,0 +1,15 @@
+Unibiz
+1-Add
+
+2-Data
+
+3-Calendar
+3.1 - Calendar and 2 buttons
+3.1.2 - Menu show clients and orders
+3.2- Profile with history
+ 	 
+4-Reports
+4.1 - Activity 1: Income, Expense and Conditional Profit
+4.2 - Income Activity: 2 Datapicker and button:Fragment : clients recyclerview 
+4.3 - Expense Activity: 2 Datapicker and button:Fragment : orders recyclerview 
+4.4 - Conditional Profit Activity: 2 Datapicker and button:Fragment : profit for distance
