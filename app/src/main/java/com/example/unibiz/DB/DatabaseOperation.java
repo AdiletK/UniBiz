@@ -118,6 +118,19 @@ public class DatabaseOperation {
             }
         }
         return clients;
+
+    }
+    public List<Client>getClients(String d1) {
+        List<Client> clients = new ArrayList<>();
+        try (CursorWrapperHelper cursor = query_by_date(
+                d1)) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                clients.add(cursor.getClient());
+                cursor.moveToNext();
+            }
+        }
+        return clients;
     }
     public Client getClient(UUID uuid){
         try(CursorWrapperHelper client = query(ClientTable.NAME,
@@ -400,6 +413,18 @@ public class DatabaseOperation {
                 ClientTable.NAME,
                 null,
                  ClientTable.Cols.VISIT_DATE +" BETWEEN '" + date1 +"' AND '"+ date2+"'",
+                null,
+                null,
+                null,
+                ClientTable.Cols.VISIT_DATE+" DESC"
+        );
+        return new CursorWrapperHelper(cursor);
+    }
+    private CursorWrapperHelper query_by_date(String date1){
+        Cursor cursor = mDatabase.query(
+                ClientTable.NAME,
+                null,
+                ClientTable.Cols.VISIT_DATE +"="+ date1,
                 null,
                 null,
                 null,

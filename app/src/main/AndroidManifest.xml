@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/MaterialTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ClientViewActivity"></activity>
+        <activity android:name=".CalendarActivity">
+
+        </activity>
+        <activity android:name=".ClientViewActivity" />
         <activity android:name=".ViewDataActivity" />
         <activity android:name=".NewClientActivity" />
         <activity android:name=".AllDataActivity" />

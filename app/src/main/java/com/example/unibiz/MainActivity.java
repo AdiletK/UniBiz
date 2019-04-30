@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CalendarView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
+        assert actionbar != null;
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.icon_for_menu);
 
@@ -114,8 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("StaticFieldLeak")
     public void updateUI() {
 
-        String date = "2019-03-01";
-        String date1 = "2019-03-30";
+        String date = "2019-04-29";
+        String date1 = "2019-04-29";
 
         new AsyncTask<String,Integer,List<Client>>(){
 
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             protected List<Client> doInBackground(String... strings) {
                 DatabaseOperation databaseOperation = DatabaseOperation.get(MainActivity.this);
-                return databaseOperation.getClients(date,date1);
+                return databaseOperation.getClients();
             }
             @Override
             protected void onPostExecute(List<Client> clients) {
@@ -261,6 +263,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startAllDataIntent();
                 return true;
             case R.id.menu_calendar:
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
                 closeDrawer();
                 return true;
             case R.id.menu_reporting:

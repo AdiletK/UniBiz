@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalendarActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionbar_theme"
+        android:paddingStart="6dp"
+        android:paddingEnd="16dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@mipmap/changed_bg_float"
+        app:title="Calendar"
+        app:titleTextColor="@color/textColor"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        />
+
+    <CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_calendar"
+        >
+    </CalendarView>
+    <FrameLayout
+        android:layout_below="@id/calendar_view"
+        android:id="@+id/day_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/client_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/OutlinedBtn"
+            android:text="@string/klient"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/material_btn"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/OutlinedBtn"
+            android:text="@string/materials"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

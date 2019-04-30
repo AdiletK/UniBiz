@@ -290,6 +290,7 @@ public class NewClientActivity extends AppCompatActivity  implements View.OnClic
             finish();
         }else {
             Toast.makeText(this,getString(R.string.msg_for_empty_texts),Toast.LENGTH_SHORT).show();
+            dialog.hide();
         }
     }
 

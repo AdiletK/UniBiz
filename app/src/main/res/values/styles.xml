@@ -42,12 +42,8 @@
     </style>
     <style name="OutlinedBtn" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textColor">@color/colorIcon</item>
-        <item name="hintTextColor">@color/colorAccent</item>
-        <item name="android:textColorHint">@color/colorAccent</item>
-        <item name="boxStrokeColor">@color/colorAccent</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:elevation">5dp</item>
-        <item name="android:fontFamily">@font/dinpro_light</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/dinpro_bold</item>
     </style>
     <!--Action bat title -->
     <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent="@android:style/TextAppearance">
