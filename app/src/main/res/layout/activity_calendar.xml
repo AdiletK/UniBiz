@@ -17,14 +17,16 @@
         app:navigationIcon="@mipmap/changed_bg_float"
         app:title="Calendar"
         app:titleTextColor="@color/textColor"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Light"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         />
 
     <CalendarView
         android:id="@+id/calendar_view"
+        android:layout_below="@id/toolbar_calendar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_calendar"
         >
     </CalendarView>
     <FrameLayout
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
         >
         <com.google.android.material.button.MaterialButton
             android:id="@+id/client_btn"

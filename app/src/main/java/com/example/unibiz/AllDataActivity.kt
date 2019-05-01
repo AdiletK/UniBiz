@@ -16,7 +16,7 @@ class AllDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alldata)
         clickListener()
 
-        toolbar_alldata_activity.setOnClickListener {
+        toolbar_alldata_activity.setNavigationOnClickListener {
             finish()
         }
     }

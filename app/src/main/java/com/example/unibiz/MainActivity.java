@@ -16,14 +16,19 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.unibiz.CalendarItems.DynamicFragment;
 import com.example.unibiz.DB.CreationDataBase;
 import com.example.unibiz.DB.DatabaseOperation;
 import com.example.unibiz.Model.Client;
 import com.example.unibiz.Utils.ClientRecyclerView;
 import com.example.unibiz.Utils.HistoryRecyclerView;
+import com.example.unibiz.Utils.Messages;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -34,6 +39,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -93,9 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CategorysLayout = findViewById(R.id.category_layout);
 
         mMainLayout = findViewById(R.id.main_layout);
-        recyclerView = findViewById(R.id.rec_client);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
 
         NavigationView navigationView = findViewById(R.id.main_navigation);
         navigationView.setNavigationItemSelectedListener(this);
@@ -116,41 +120,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("StaticFieldLeak")
     public void updateUI() {
 
-        String date = "2019-04-29";
-        String date1 = "2019-04-29";
-
-        new AsyncTask<String,Integer,List<Client>>(){
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-            }
-            @Override
-            protected List<Client> doInBackground(String... strings) {
-                DatabaseOperation databaseOperation = DatabaseOperation.get(MainActivity.this);
-                return databaseOperation.getClients();
-            }
-            @Override
-            protected void onPostExecute(List<Client> clients) {
-                super.onPostExecute(clients);
-                if (mClientRecyclerViewAdapter ==null) {
-                    mClientRecyclerViewAdapter = new ClientRecyclerView(MainActivity.this, clients,getLayoutInflater());
-                    recyclerView.setAdapter(mClientRecyclerViewAdapter);
-                }else {
-                    mClientRecyclerViewAdapter.setData(clients);
-                    mClientRecyclerViewAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            protected void onProgressUpdate(Integer... values) {
-                super.onProgressUpdate(values);
-
-            }
-
-
-        }.execute();
-
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        Date mDate =new GregorianCalendar(year, month, day).getTime();
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = DynamicFragment.Companion.newInstance(mDate, true, Messages.client);
+        fm.beginTransaction()
+                .replace(R.id.clients_rec, fragment)
+                .commit();
 
         //Recycler View
 
@@ -200,8 +179,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             case R.id.floatingActionButton_order:
                 //open Product dialog
-                Intent intent = new Intent(MainActivity.this, NewProductActivity.class);
-                startActivityForResult(intent,NewProductActivity_Request_code);
+
+                    Intent intent = new Intent(MainActivity.this, NewProductActivity.class);
+                    startActivityForResult(intent,NewProductActivity_Request_code);
+
                 handlerMethod();
                 return;
             case R.id.floatingActionButton_master:
@@ -212,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.floatingActionButton_category:
                 openCategoryDialog();
                 handlerMethod();
+
                 return;
             case R.id.floatingActionButton:
                 if (OrderLayout.getVisibility()==View.VISIBLE && ClientLayout.getVisibility()==View.VISIBLE){
@@ -246,11 +228,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void openDialogClient() {
         Intent clientIntent = new Intent(MainActivity.this, NewClientActivity.class);
-        startActivityForResult(clientIntent,RESULT_FOR_ADD_CLIENT);
+        startActivity(clientIntent);
     }
     private void openCategoryDialog(){
-        NewCategoryDialog dialog;
-        dialog = NewCategoryDialog.Companion.display(getSupportFragmentManager());
+        NewCategoryDialog.Companion.display(getSupportFragmentManager());
     }
 
     @Override
@@ -260,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startAddActivity();
                 return true;
             case R.id.menu_all_data:
-                startAllDataIntent();
+                 startAllDataIntent();
                 return true;
             case R.id.menu_calendar:
                 Intent intent = new Intent(MainActivity.this, CalendarActivity.class);

@@ -121,7 +121,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_client"
-                style="@style/OutlinedBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_add_btns"
                 android:layout_weight="1"
@@ -145,7 +145,7 @@
                 />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_material"
-                style="@style/OutlinedBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_add_btns"
                 android:layout_weight="1"
@@ -176,7 +176,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_category"
-                style="@style/OutlinedBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_of_add_btns"
                 android:layout_weight="1"

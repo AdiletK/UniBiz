@@ -287,6 +287,7 @@ public class NewClientActivity extends AppCompatActivity  implements View.OnClic
                     insert.add(new_client);
                 }
             }).start();
+            dialog.hide();
             finish();
         }else {
             Toast.makeText(this,getString(R.string.msg_for_empty_texts),Toast.LENGTH_SHORT).show();

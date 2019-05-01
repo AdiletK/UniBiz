@@ -69,6 +69,20 @@ public class DatabaseOperation {
         }
         return products;
     }
+    public List<Product>getProducts(String d1,String d2){
+        List<Product> products = new ArrayList<>();
+        try (CursorWrapperHelper cursor = query_by_date(ProductTable.NAME,ProductTable.Cols.DATE,
+                d1,d2)) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                products.add(cursor.getProduct());
+                cursor.moveToNext();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
     public Product getProduct(UUID uuid){
         try (CursorWrapperHelper product = query(ProductTable.NAME,
                 ProductTable.Cols.P_UUID + "=?",
@@ -109,7 +123,7 @@ public class DatabaseOperation {
     }
     public List<Client>getClients(String d1,String d2){
         List<Client>clients = new ArrayList<>();
-        try (CursorWrapperHelper cursor = query_by_date(
+        try (CursorWrapperHelper cursor = query_by_date(ClientTable.NAME,ClientTable.Cols.VISIT_DATE,
                 d1,d2)) {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
@@ -120,18 +134,7 @@ public class DatabaseOperation {
         return clients;
 
     }
-    public List<Client>getClients(String d1) {
-        List<Client> clients = new ArrayList<>();
-        try (CursorWrapperHelper cursor = query_by_date(
-                d1)) {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                clients.add(cursor.getClient());
-                cursor.moveToNext();
-            }
-        }
-        return clients;
-    }
+
     public Client getClient(UUID uuid){
         try(CursorWrapperHelper client = query(ClientTable.NAME,
                 ClientTable.Cols.C_UUID + "=?",
@@ -408,30 +411,19 @@ public class DatabaseOperation {
         );
         return new CursorWrapperHelper(cursor);
     }
-    private CursorWrapperHelper query_by_date(String date1, String date2){
+    private CursorWrapperHelper query_by_date(String tableName,String where, String date1, String date2){
         Cursor cursor = mDatabase.query(
-                ClientTable.NAME,
+                tableName,
                 null,
-                 ClientTable.Cols.VISIT_DATE +" BETWEEN '" + date1 +"' AND '"+ date2+"'",
+                 where +" BETWEEN '" + date1 +"' AND '"+ date2+"'",
                 null,
                 null,
                 null,
-                ClientTable.Cols.VISIT_DATE+" DESC"
+                where+" DESC"
         );
         return new CursorWrapperHelper(cursor);
     }
-    private CursorWrapperHelper query_by_date(String date1){
-        Cursor cursor = mDatabase.query(
-                ClientTable.NAME,
-                null,
-                ClientTable.Cols.VISIT_DATE +"="+ date1,
-                null,
-                null,
-                null,
-                ClientTable.Cols.VISIT_DATE+" DESC"
-        );
-        return new CursorWrapperHelper(cursor);
-    }
+
 
     private void deleteOperation(String table,String whereClause, UUID id) {
         mDatabase.delete(table, whereClause + "=?",

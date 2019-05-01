@@ -26,12 +26,13 @@
             app:titleTextColor="@color/textColor"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             />
-                <androidx.recyclerview.widget.RecyclerView
+                <FrameLayout
+                    android:id="@+id/clients_rec"
                     android:layout_below="@id/toolbar"
-                    android:id="@+id/rec_client"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
+
+                </FrameLayout>
 
         <LinearLayout
             android:layout_alignParentEnd="true"

@@ -59,11 +59,7 @@ class CategoryViewDialogs : DialogFragment(){
             dismiss()
             true
         }
-
-        Thread(Runnable {
             getCategories()
-        })
-
     }
 
     private fun getCategories() {
