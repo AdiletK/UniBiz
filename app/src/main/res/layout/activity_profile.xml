@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_profile"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:paddingEnd="16dp"
+        android:paddingStart="6dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@mipmap/changed_bg_float"
+        app:title="Profile"
+        app:titleTextColor="@color/textColor"
+        android:background="@drawable/actionbar_theme"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+
+        />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/header_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar_profile"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:background="@drawable/actionbar_theme"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/img_add_klient"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:transitionName="circleImage"
+                        />
+
+                    <TextView
+                        android:id="@+id/profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/profile_image"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="Name"
+                        android:textColor="@color/white"
+                        android:textStyle="normal|bold"
+                        android:transitionName="profileName" />
+
+                    <TextView
+                        android:id="@+id/profile_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/profile_name"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="phone"
+                        android:textColor="@color/white"
+                        android:textStyle="normal|bold"
+                        android:transitionName="profilePhone" />
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_card"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_profile_item"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/header_root"
+                android:layout_marginTop="-25dp"
+                app:cardCornerRadius="25dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/center_root"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_profile_item"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/header_root"
+                    android:weightSum="2"
+                    android:baselineAligned="false">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/visit"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/profile_visit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/visit"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="10dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/summa"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+
+                            />
+                        <TextView
+                            android:id="@+id/profile_summa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/summa"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/black"
+
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <LinearLayout
+                android:layout_below="@id/profile_card"
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                >
+                <TextView
+                    android:id="@+id/history"
+                    android:layout_width="0dp"
+                    android:layout_weight="95"
+                    android:layout_height="wrap_content"
+                    android:text="@string/history_of_orders"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_margin="5dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/profile_add_image"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:contentDescription="@string/add_new"
+                    android:gravity="end"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_add_img"
+                    android:background="#fff"/>
+            </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@id/line1"
+                    android:id="@+id/profile_rec_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+</RelativeLayout>

@@ -93,4 +93,14 @@
     <string name="dialog_title_supplier_views">Suppliers</string>
     <string name="msg_not_all_fields_filled">Not all fields are filled</string>
     <string name="new_supplier_date_visit_hint">Date visit</string>
+    <string name="visit">Visit</string>
+    <string name="summa">Summa</string>
+    <string name="history_of_orders">History of orders</string>
+    <string name="add_new">Add new</string>
+    <string name="choose_for_get_report">Choose to get report</string>
+    <string name="revenue">Revenue</string>
+    <string name="costs">Costs</string>
+    <string name="profit">Profit</string>
+    <string name="execute">Execute</string>
+    <string name="not_exist">Sorry,Not exist</string>
 </resources>

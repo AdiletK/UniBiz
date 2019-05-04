@@ -24,9 +24,7 @@ class AllDataActivity : AppCompatActivity() {
     private fun clickListener() {
         data_client.setOnClickListener {
             //call Client View dialog
-            val intent = Intent(this, ViewDataActivity::class.java)
-            intent.putExtra(Messages.message, Messages.client)
-            startActivity(intent)
+             ClientViewDialogs.display(supportFragmentManager)
 
         }
         data_category.setOnClickListener {

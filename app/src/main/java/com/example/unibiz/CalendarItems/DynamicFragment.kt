@@ -39,7 +39,7 @@ class DynamicFragment : Fragment() {
         rec.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         if (text==Messages.client){
             val operation = DatabaseOperation.get(context).clients
-            val mClients = ClientRecyclerView(context, operation, LayoutInflater.from(context))
+            val mClients = ClientRecyclerView(context, operation, LayoutInflater.from(context),Messages.mainactivity)
             rec.adapter = mClients
         }else if (text==Messages.product) {
 
@@ -47,7 +47,7 @@ class DynamicFragment : Fragment() {
         else{
             if (flag) {
                 val operation = DatabaseOperation.get(context).getClients(sc, sc)
-                val mClients = ClientRecyclerView(context, operation, LayoutInflater.from(context))
+                val mClients = ClientRecyclerView(context, operation, LayoutInflater.from(context),null)
                 rec.adapter = mClients
             } else {
                 val operation = DatabaseOperation.get(context).getProducts(sc, sc)

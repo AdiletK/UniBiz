@@ -63,18 +63,6 @@
         <item name="android:fontFamily">@font/dinpro_bold</item>
     </style>
 
-    <style name="AppTheme.FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog">
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="actionMenuTextColor">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/dinpro_condensedmedium</item>
-        <item name="android:textSize">19sp</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
     <style name="AppTheme.Slide">
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_down</item>

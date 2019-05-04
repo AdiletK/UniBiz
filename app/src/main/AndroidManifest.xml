@@ -13,12 +13,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/MaterialTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
-        <activity android:name=".CalendarActivity"
-            android:theme="@style/CalendarTheme">
-
-        </activity>
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ReportDetailActivity"></activity>
+        <activity android:name=".ReportActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".CalendarActivity"
+            android:theme="@style/CalendarTheme" />
         <activity android:name=".ClientViewActivity" />
         <activity android:name=".ViewDataActivity" />
         <activity android:name=".NewClientActivity" />

@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Animation mHideLayout ;
     private Animation mShowLayout ;
     private FloatingActionButton floatBtn;
-    protected RecyclerView recyclerView;
     private ClientRecyclerView mClientRecyclerViewAdapter;
 
     private RelativeLayout mMainLayout,Layout;
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RelativeLayout mainLayout = findViewById(R.id.main_layout);
         initComponents();
         initFloatButton();
         updateUI();
@@ -131,9 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .replace(R.id.clients_rec, fragment)
                 .commit();
 
-        //Recycler View
 
-//        mClientRecyclerViewAdapter.setClickListener(this);
     }
 
 
@@ -249,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 closeDrawer();
                 return true;
             case R.id.menu_reporting:
+                startActivity(new Intent(this,ReportActivity.class));
                 closeDrawer();
                 return true;
             case R.id.menu_setting:
@@ -307,4 +304,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 }

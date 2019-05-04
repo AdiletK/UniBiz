@@ -2,6 +2,7 @@ package com.example.unibiz.Utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.example.unibiz.DB.DatabaseOperation;
 import com.example.unibiz.MainActivity;
 import com.example.unibiz.Model.Category;
 import com.example.unibiz.Model.Client;
+import com.example.unibiz.ProfileActivity;
 import com.example.unibiz.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -35,27 +37,29 @@ public class ClientRecyclerView extends RecyclerView.Adapter< ClientRecyclerView
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private Context mContext;
+    private String mActivity;
 
 
     // data is passed into the constructor
-    public ClientRecyclerView(Context context, List<Client> data,LayoutInflater inflater) {
+    public ClientRecyclerView(Context context, List<Client> data,LayoutInflater inflater,String activity) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         mContext =context;
+        mActivity = activity;
 
     }
 
     // inflates the row layout from xml when needed
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.list_item_client, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Client client = mData.get(position);
         holder.bind(client);
@@ -85,24 +89,21 @@ public class ClientRecyclerView extends RecyclerView.Adapter< ClientRecyclerView
             time = itemView.findViewById(R.id.time);
             mCircleImageView =itemView.findViewById(R.id.profile_image);
             itemView.setOnClickListener(this);
-//            LongPressPopup popup = new LongPressPopupBuilder(mContext)// A Context object for the builder constructor
-//                    .setTarget(itemView)// The View which will open the popup if long pressed
-//                    .setPopupView(R.layout.dialog_quick_view, this)// The View to show when long pressed
-//                    .setAnimationType(LongPressPopup.ANIMATION_TYPE_FROM_CENTER)
-//                    .setLongPressReleaseListener(this)
-//                    .setPopupListener(this)
-//                    .build();// This will give you a LongPressPopup object
-//            popup.register();
+            LongPressPopup popup = new LongPressPopupBuilder(mContext)// A Context object for the builder constructor
+                    .setTarget(itemView)// The View which will open the popup if long pressed
+                    .setPopupView(R.layout.dialog_quick_view, this)// The View to show when long pressed
+                    .setAnimationType(LongPressPopup.ANIMATION_TYPE_FROM_CENTER)
+                    .setLongPressReleaseListener(this)
+                    .setPopupListener(this)
+                    .build();// This will give you a LongPressPopup object
+            popup.register();
         }
 
-        public void bind(Client client){
+        void bind(Client client){
             mClient = client;
             String name1 = mClient.getName();
             String nomer = mClient.getNomer();
-//            String time1 =  DateFormat.getDateInstance(
-//                    DateFormat.SHORT).format(mClient.getVisitDate());
 
-            System.out.println(mClient.getVisitDate());
 
             Bitmap bitmap = getBitmap();
 
@@ -129,12 +130,17 @@ public class ClientRecyclerView extends RecyclerView.Adapter< ClientRecyclerView
 
         @Override
         public void onClick(View v) {
+
             if (mClickListener != null) mClickListener.onItemClick(v, getAdapterPosition());
             if (deleteBtn!=null && v.getId()==deleteBtn.getId()){
                 alertDialog();
             }
-            if (MoreBtn!=null && v.getId()==MoreBtn.getId()){
+            else if (MoreBtn!=null && v.getId()==MoreBtn.getId()){
                 Toast.makeText(mContext, "More!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+              Intent intent = ProfileActivity.Companion.newIntent(mContext,mClient.getId());
+               mContext.startActivity(intent);
             }
         }
 
@@ -149,7 +155,9 @@ public class ClientRecyclerView extends RecyclerView.Adapter< ClientRecyclerView
                     (dialog, which) -> {
                         DatabaseOperation.get(mContext)
                                 .delete(mClient);
-                        ((MainActivity) mContext).updateUI();
+                        if (mActivity!=null && mActivity.equals(Messages.mainactivity)){
+                            ((MainActivity) mContext).updateUI();
+                        }
                     });
                     builder1.setNegativeButton(
                             mContext.getString(R.string.option_no),
@@ -158,6 +166,8 @@ public class ClientRecyclerView extends RecyclerView.Adapter< ClientRecyclerView
 
             AlertDialog alert11 = builder1.create();
             alert11.show();
+
+
         }
 
 

@@ -134,7 +134,19 @@ public class DatabaseOperation {
         return clients;
 
     }
+    public List<Client>getClients(String name){
+        List<Client>clients = new ArrayList<>();
+        try (CursorWrapperHelper cursor = query_by_name(ClientTable.NAME,ClientTable.Cols.NAME,
+                name)) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                clients.add(cursor.getClient());
+                cursor.moveToNext();
+            }
+        }
+        return clients;
 
+    }
     public Client getClient(UUID uuid){
         try(CursorWrapperHelper client = query(ClientTable.NAME,
                 ClientTable.Cols.C_UUID + "=?",
@@ -423,6 +435,19 @@ public class DatabaseOperation {
         );
         return new CursorWrapperHelper(cursor);
     }
+    private CursorWrapperHelper query_by_name(String tableName,String where, String name){
+        Cursor cursor = mDatabase.query(
+                tableName,
+                null,
+                where +"= '"+name+"'",
+                null,
+                null,
+                null,
+                where + " ASC"
+        );
+        return new CursorWrapperHelper(cursor);
+    }
+
 
 
     private void deleteOperation(String table,String whereClause, UUID id) {

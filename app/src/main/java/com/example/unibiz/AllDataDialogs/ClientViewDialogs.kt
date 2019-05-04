@@ -84,10 +84,12 @@ class ClientViewDialogs:DialogFragment(){
 
         override fun onPostExecute(result: List<Client>?) {
             super.onPostExecute(result)
-            progressBar.visibility=View.INVISIBLE
             recycler_view.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            val mClients = ClientRecyclerView(context, result, LayoutInflater.from(context))
+            val mClients = ClientRecyclerView(context, result, LayoutInflater.from(context),null)
             recycler_view.adapter = mClients
+
+            progressBar.visibility=View.INVISIBLE
+
 
         }
     }
